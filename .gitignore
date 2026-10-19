@@ -1,0 +1,27 @@
+# Working files (never part of the repo or the submission)
+CLAUDE.md
+CLAUDE.local.md
+PROGRESS.md
+.claude/
+docs/code_walkthrough_zh.md
+docs/deployment_guide_zh.md
+
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Raw data is downloaded by scripts/build_data.py, not committed
+data/raw/*
+!data/raw/.gitkeep
+
+# Build artefacts
+*.zip
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

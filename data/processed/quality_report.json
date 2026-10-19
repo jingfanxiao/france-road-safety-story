@@ -1,0 +1,2075 @@
+{
+ "summary": {
+  "n_checks": 26,
+  "n_pass": 17,
+  "n_minor": 6,
+  "n_warning": 3,
+  "warnings": [
+   "Missing birth year",
+   "Missing speed limit",
+   "Extra place rows"
+  ]
+ },
+ "checks": [
+  {
+   "check": "Rows per year",
+   "table": "caract",
+   "year": "2019",
+   "n_rows": 58840,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Number of records in the raw file."
+  },
+  {
+   "check": "Rows per year",
+   "table": "caract",
+   "year": "2020",
+   "n_rows": 47744,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Number of records in the raw file."
+  },
+  {
+   "check": "Rows per year",
+   "table": "caract",
+   "year": "2021",
+   "n_rows": 56518,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Number of records in the raw file."
+  },
+  {
+   "check": "Rows per year",
+   "table": "caract",
+   "year": "2022",
+   "n_rows": 55302,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Number of records in the raw file."
+  },
+  {
+   "check": "Rows per year",
+   "table": "caract",
+   "year": "2023",
+   "n_rows": 54822,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Number of records in the raw file."
+  },
+  {
+   "check": "Rows per year",
+   "table": "caract",
+   "year": "2024",
+   "n_rows": 54402,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Number of records in the raw file."
+  },
+  {
+   "check": "Rows per year",
+   "table": "lieux",
+   "year": "2019",
+   "n_rows": 58840,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Number of records in the raw file."
+  },
+  {
+   "check": "Rows per year",
+   "table": "lieux",
+   "year": "2020",
+   "n_rows": 47744,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Number of records in the raw file."
+  },
+  {
+   "check": "Rows per year",
+   "table": "lieux",
+   "year": "2021",
+   "n_rows": 56518,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Number of records in the raw file."
+  },
+  {
+   "check": "Rows per year",
+   "table": "lieux",
+   "year": "2022",
+   "n_rows": 55302,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Number of records in the raw file."
+  },
+  {
+   "check": "Rows per year",
+   "table": "lieux",
+   "year": "2023",
+   "n_rows": 70860,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Number of records in the raw file."
+  },
+  {
+   "check": "Rows per year",
+   "table": "lieux",
+   "year": "2024",
+   "n_rows": 70248,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Number of records in the raw file."
+  },
+  {
+   "check": "Rows per year",
+   "table": "vehicules",
+   "year": "2019",
+   "n_rows": 100710,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Number of records in the raw file."
+  },
+  {
+   "check": "Rows per year",
+   "table": "vehicules",
+   "year": "2020",
+   "n_rows": 81066,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Number of records in the raw file."
+  },
+  {
+   "check": "Rows per year",
+   "table": "vehicules",
+   "year": "2021",
+   "n_rows": 97315,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Number of records in the raw file."
+  },
+  {
+   "check": "Rows per year",
+   "table": "vehicules",
+   "year": "2022",
+   "n_rows": 94493,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Number of records in the raw file."
+  },
+  {
+   "check": "Rows per year",
+   "table": "vehicules",
+   "year": "2023",
+   "n_rows": 93585,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Number of records in the raw file."
+  },
+  {
+   "check": "Rows per year",
+   "table": "vehicules",
+   "year": "2024",
+   "n_rows": 92678,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Number of records in the raw file."
+  },
+  {
+   "check": "Rows per year",
+   "table": "usagers",
+   "year": "2019",
+   "n_rows": 132977,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Number of records in the raw file."
+  },
+  {
+   "check": "Rows per year",
+   "table": "usagers",
+   "year": "2020",
+   "n_rows": 105295,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Number of records in the raw file."
+  },
+  {
+   "check": "Rows per year",
+   "table": "usagers",
+   "year": "2021",
+   "n_rows": 129248,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Number of records in the raw file."
+  },
+  {
+   "check": "Rows per year",
+   "table": "usagers",
+   "year": "2022",
+   "n_rows": 126662,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Number of records in the raw file."
+  },
+  {
+   "check": "Rows per year",
+   "table": "usagers",
+   "year": "2023",
+   "n_rows": 125789,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Number of records in the raw file."
+  },
+  {
+   "check": "Rows per year",
+   "table": "usagers",
+   "year": "2024",
+   "n_rows": 125187,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Number of records in the raw file."
+  },
+  {
+   "check": "Duplicate rows",
+   "table": "caract",
+   "year": "2019",
+   "n_rows": 58840,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Rows identical to an earlier row in all columns."
+  },
+  {
+   "check": "Duplicate rows",
+   "table": "caract",
+   "year": "2020",
+   "n_rows": 47744,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Rows identical to an earlier row in all columns."
+  },
+  {
+   "check": "Duplicate rows",
+   "table": "caract",
+   "year": "2021",
+   "n_rows": 56518,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Rows identical to an earlier row in all columns."
+  },
+  {
+   "check": "Duplicate rows",
+   "table": "caract",
+   "year": "2022",
+   "n_rows": 55302,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Rows identical to an earlier row in all columns."
+  },
+  {
+   "check": "Duplicate rows",
+   "table": "caract",
+   "year": "2023",
+   "n_rows": 54822,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Rows identical to an earlier row in all columns."
+  },
+  {
+   "check": "Duplicate rows",
+   "table": "caract",
+   "year": "2024",
+   "n_rows": 54402,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Rows identical to an earlier row in all columns."
+  },
+  {
+   "check": "Duplicate rows",
+   "table": "caract",
+   "year": "all",
+   "n_rows": 327628,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Rows identical to an earlier row in all columns."
+  },
+  {
+   "check": "Duplicate rows",
+   "table": "lieux",
+   "year": "2019",
+   "n_rows": 58840,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Rows identical to an earlier row in all columns."
+  },
+  {
+   "check": "Duplicate rows",
+   "table": "lieux",
+   "year": "2020",
+   "n_rows": 47744,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Rows identical to an earlier row in all columns."
+  },
+  {
+   "check": "Duplicate rows",
+   "table": "lieux",
+   "year": "2021",
+   "n_rows": 56518,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Rows identical to an earlier row in all columns."
+  },
+  {
+   "check": "Duplicate rows",
+   "table": "lieux",
+   "year": "2022",
+   "n_rows": 55302,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Rows identical to an earlier row in all columns."
+  },
+  {
+   "check": "Duplicate rows",
+   "table": "lieux",
+   "year": "2023",
+   "n_rows": 70860,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Rows identical to an earlier row in all columns."
+  },
+  {
+   "check": "Duplicate rows",
+   "table": "lieux",
+   "year": "2024",
+   "n_rows": 70248,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Rows identical to an earlier row in all columns."
+  },
+  {
+   "check": "Duplicate rows",
+   "table": "lieux",
+   "year": "all",
+   "n_rows": 359512,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Rows identical to an earlier row in all columns."
+  },
+  {
+   "check": "Duplicate rows",
+   "table": "vehicules",
+   "year": "2019",
+   "n_rows": 100710,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Rows identical to an earlier row in all columns."
+  },
+  {
+   "check": "Duplicate rows",
+   "table": "vehicules",
+   "year": "2020",
+   "n_rows": 81066,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Rows identical to an earlier row in all columns."
+  },
+  {
+   "check": "Duplicate rows",
+   "table": "vehicules",
+   "year": "2021",
+   "n_rows": 97315,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Rows identical to an earlier row in all columns."
+  },
+  {
+   "check": "Duplicate rows",
+   "table": "vehicules",
+   "year": "2022",
+   "n_rows": 94493,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Rows identical to an earlier row in all columns."
+  },
+  {
+   "check": "Duplicate rows",
+   "table": "vehicules",
+   "year": "2023",
+   "n_rows": 93585,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Rows identical to an earlier row in all columns."
+  },
+  {
+   "check": "Duplicate rows",
+   "table": "vehicules",
+   "year": "2024",
+   "n_rows": 92678,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Rows identical to an earlier row in all columns."
+  },
+  {
+   "check": "Duplicate rows",
+   "table": "vehicules",
+   "year": "all",
+   "n_rows": 559847,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Rows identical to an earlier row in all columns."
+  },
+  {
+   "check": "Duplicate rows",
+   "table": "usagers",
+   "year": "2019",
+   "n_rows": 132977,
+   "n_flagged": 101,
+   "pct_flagged": 0.076,
+   "status": "minor",
+   "description": "Rows identical to an earlier row in all columns. Before 2021 (no user id) these can be distinct people."
+  },
+  {
+   "check": "Duplicate rows",
+   "table": "usagers",
+   "year": "2020",
+   "n_rows": 105295,
+   "n_flagged": 63,
+   "pct_flagged": 0.06,
+   "status": "minor",
+   "description": "Rows identical to an earlier row in all columns. Before 2021 (no user id) these can be distinct people."
+  },
+  {
+   "check": "Duplicate rows",
+   "table": "usagers",
+   "year": "2021",
+   "n_rows": 129248,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Rows identical to an earlier row in all columns. Before 2021 (no user id) these can be distinct people."
+  },
+  {
+   "check": "Duplicate rows",
+   "table": "usagers",
+   "year": "2022",
+   "n_rows": 126662,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Rows identical to an earlier row in all columns. Before 2021 (no user id) these can be distinct people."
+  },
+  {
+   "check": "Duplicate rows",
+   "table": "usagers",
+   "year": "2023",
+   "n_rows": 125789,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Rows identical to an earlier row in all columns. Before 2021 (no user id) these can be distinct people."
+  },
+  {
+   "check": "Duplicate rows",
+   "table": "usagers",
+   "year": "2024",
+   "n_rows": 125187,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Rows identical to an earlier row in all columns. Before 2021 (no user id) these can be distinct people."
+  },
+  {
+   "check": "Duplicate rows",
+   "table": "usagers",
+   "year": "all",
+   "n_rows": 745158,
+   "n_flagged": 164,
+   "pct_flagged": 0.022,
+   "status": "minor",
+   "description": "Rows identical to an earlier row in all columns. Before 2021 (no user id) these can be distinct people."
+  },
+  {
+   "check": "Duplicate accident id",
+   "table": "caract",
+   "year": "2019",
+   "n_rows": 58840,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Num_Acc must identify one accident."
+  },
+  {
+   "check": "Duplicate accident id",
+   "table": "caract",
+   "year": "2020",
+   "n_rows": 47744,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Num_Acc must identify one accident."
+  },
+  {
+   "check": "Duplicate accident id",
+   "table": "caract",
+   "year": "2021",
+   "n_rows": 56518,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Num_Acc must identify one accident."
+  },
+  {
+   "check": "Duplicate accident id",
+   "table": "caract",
+   "year": "2022",
+   "n_rows": 55302,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Num_Acc must identify one accident."
+  },
+  {
+   "check": "Duplicate accident id",
+   "table": "caract",
+   "year": "2023",
+   "n_rows": 54822,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Num_Acc must identify one accident."
+  },
+  {
+   "check": "Duplicate accident id",
+   "table": "caract",
+   "year": "2024",
+   "n_rows": 54402,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Num_Acc must identify one accident."
+  },
+  {
+   "check": "Duplicate accident id",
+   "table": "caract",
+   "year": "all",
+   "n_rows": 327628,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Num_Acc must identify one accident."
+  },
+  {
+   "check": "Duplicate vehicle id",
+   "table": "vehicules",
+   "year": "2019",
+   "n_rows": 100710,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "id_vehicule must be unique within an accident."
+  },
+  {
+   "check": "Duplicate vehicle id",
+   "table": "vehicules",
+   "year": "2020",
+   "n_rows": 81066,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "id_vehicule must be unique within an accident."
+  },
+  {
+   "check": "Duplicate vehicle id",
+   "table": "vehicules",
+   "year": "2021",
+   "n_rows": 97315,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "id_vehicule must be unique within an accident."
+  },
+  {
+   "check": "Duplicate vehicle id",
+   "table": "vehicules",
+   "year": "2022",
+   "n_rows": 94493,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "id_vehicule must be unique within an accident."
+  },
+  {
+   "check": "Duplicate vehicle id",
+   "table": "vehicules",
+   "year": "2023",
+   "n_rows": 93585,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "id_vehicule must be unique within an accident."
+  },
+  {
+   "check": "Duplicate vehicle id",
+   "table": "vehicules",
+   "year": "2024",
+   "n_rows": 92678,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "id_vehicule must be unique within an accident."
+  },
+  {
+   "check": "Duplicate vehicle id",
+   "table": "vehicules",
+   "year": "all",
+   "n_rows": 559847,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "id_vehicule must be unique within an accident."
+  },
+  {
+   "check": "Duplicate user id",
+   "table": "usagers",
+   "year": "2019",
+   "n_rows": 132977,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "id_usager must be unique (column exists from 2021)."
+  },
+  {
+   "check": "Duplicate user id",
+   "table": "usagers",
+   "year": "2020",
+   "n_rows": 105295,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "id_usager must be unique (column exists from 2021)."
+  },
+  {
+   "check": "Duplicate user id",
+   "table": "usagers",
+   "year": "2021",
+   "n_rows": 129248,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "id_usager must be unique (column exists from 2021)."
+  },
+  {
+   "check": "Duplicate user id",
+   "table": "usagers",
+   "year": "2022",
+   "n_rows": 126662,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "id_usager must be unique (column exists from 2021)."
+  },
+  {
+   "check": "Duplicate user id",
+   "table": "usagers",
+   "year": "2023",
+   "n_rows": 125789,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "id_usager must be unique (column exists from 2021)."
+  },
+  {
+   "check": "Duplicate user id",
+   "table": "usagers",
+   "year": "2024",
+   "n_rows": 125187,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "id_usager must be unique (column exists from 2021)."
+  },
+  {
+   "check": "Duplicate user id",
+   "table": "usagers",
+   "year": "all",
+   "n_rows": 745158,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "id_usager must be unique (column exists from 2021)."
+  },
+  {
+   "check": "Orphan accident id",
+   "table": "lieux",
+   "year": "2019",
+   "n_rows": 58840,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Num_Acc not found in the characteristics table."
+  },
+  {
+   "check": "Orphan accident id",
+   "table": "lieux",
+   "year": "2020",
+   "n_rows": 47744,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Num_Acc not found in the characteristics table."
+  },
+  {
+   "check": "Orphan accident id",
+   "table": "lieux",
+   "year": "2021",
+   "n_rows": 56518,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Num_Acc not found in the characteristics table."
+  },
+  {
+   "check": "Orphan accident id",
+   "table": "lieux",
+   "year": "2022",
+   "n_rows": 55302,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Num_Acc not found in the characteristics table."
+  },
+  {
+   "check": "Orphan accident id",
+   "table": "lieux",
+   "year": "2023",
+   "n_rows": 70860,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Num_Acc not found in the characteristics table."
+  },
+  {
+   "check": "Orphan accident id",
+   "table": "lieux",
+   "year": "2024",
+   "n_rows": 70248,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Num_Acc not found in the characteristics table."
+  },
+  {
+   "check": "Orphan accident id",
+   "table": "lieux",
+   "year": "all",
+   "n_rows": 359512,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Num_Acc not found in the characteristics table."
+  },
+  {
+   "check": "Orphan accident id",
+   "table": "vehicules",
+   "year": "2019",
+   "n_rows": 100710,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Num_Acc not found in the characteristics table."
+  },
+  {
+   "check": "Orphan accident id",
+   "table": "vehicules",
+   "year": "2020",
+   "n_rows": 81066,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Num_Acc not found in the characteristics table."
+  },
+  {
+   "check": "Orphan accident id",
+   "table": "vehicules",
+   "year": "2021",
+   "n_rows": 97315,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Num_Acc not found in the characteristics table."
+  },
+  {
+   "check": "Orphan accident id",
+   "table": "vehicules",
+   "year": "2022",
+   "n_rows": 94493,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Num_Acc not found in the characteristics table."
+  },
+  {
+   "check": "Orphan accident id",
+   "table": "vehicules",
+   "year": "2023",
+   "n_rows": 93585,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Num_Acc not found in the characteristics table."
+  },
+  {
+   "check": "Orphan accident id",
+   "table": "vehicules",
+   "year": "2024",
+   "n_rows": 92678,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Num_Acc not found in the characteristics table."
+  },
+  {
+   "check": "Orphan accident id",
+   "table": "vehicules",
+   "year": "all",
+   "n_rows": 559847,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Num_Acc not found in the characteristics table."
+  },
+  {
+   "check": "Orphan accident id",
+   "table": "usagers",
+   "year": "2019",
+   "n_rows": 132977,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Num_Acc not found in the characteristics table."
+  },
+  {
+   "check": "Orphan accident id",
+   "table": "usagers",
+   "year": "2020",
+   "n_rows": 105295,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Num_Acc not found in the characteristics table."
+  },
+  {
+   "check": "Orphan accident id",
+   "table": "usagers",
+   "year": "2021",
+   "n_rows": 129248,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Num_Acc not found in the characteristics table."
+  },
+  {
+   "check": "Orphan accident id",
+   "table": "usagers",
+   "year": "2022",
+   "n_rows": 126662,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Num_Acc not found in the characteristics table."
+  },
+  {
+   "check": "Orphan accident id",
+   "table": "usagers",
+   "year": "2023",
+   "n_rows": 125789,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Num_Acc not found in the characteristics table."
+  },
+  {
+   "check": "Orphan accident id",
+   "table": "usagers",
+   "year": "2024",
+   "n_rows": 125187,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Num_Acc not found in the characteristics table."
+  },
+  {
+   "check": "Orphan accident id",
+   "table": "usagers",
+   "year": "all",
+   "n_rows": 745158,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Num_Acc not found in the characteristics table."
+  },
+  {
+   "check": "Accident without lieux",
+   "table": "caract",
+   "year": "2019",
+   "n_rows": 58840,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Accident with no record in the lieux table."
+  },
+  {
+   "check": "Accident without lieux",
+   "table": "caract",
+   "year": "2020",
+   "n_rows": 47744,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Accident with no record in the lieux table."
+  },
+  {
+   "check": "Accident without lieux",
+   "table": "caract",
+   "year": "2021",
+   "n_rows": 56518,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Accident with no record in the lieux table."
+  },
+  {
+   "check": "Accident without lieux",
+   "table": "caract",
+   "year": "2022",
+   "n_rows": 55302,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Accident with no record in the lieux table."
+  },
+  {
+   "check": "Accident without lieux",
+   "table": "caract",
+   "year": "2023",
+   "n_rows": 54822,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Accident with no record in the lieux table."
+  },
+  {
+   "check": "Accident without lieux",
+   "table": "caract",
+   "year": "2024",
+   "n_rows": 54402,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Accident with no record in the lieux table."
+  },
+  {
+   "check": "Accident without lieux",
+   "table": "caract",
+   "year": "all",
+   "n_rows": 327628,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Accident with no record in the lieux table."
+  },
+  {
+   "check": "Accident without vehicules",
+   "table": "caract",
+   "year": "2019",
+   "n_rows": 58840,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Accident with no record in the vehicules table."
+  },
+  {
+   "check": "Accident without vehicules",
+   "table": "caract",
+   "year": "2020",
+   "n_rows": 47744,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Accident with no record in the vehicules table."
+  },
+  {
+   "check": "Accident without vehicules",
+   "table": "caract",
+   "year": "2021",
+   "n_rows": 56518,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Accident with no record in the vehicules table."
+  },
+  {
+   "check": "Accident without vehicules",
+   "table": "caract",
+   "year": "2022",
+   "n_rows": 55302,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Accident with no record in the vehicules table."
+  },
+  {
+   "check": "Accident without vehicules",
+   "table": "caract",
+   "year": "2023",
+   "n_rows": 54822,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Accident with no record in the vehicules table."
+  },
+  {
+   "check": "Accident without vehicules",
+   "table": "caract",
+   "year": "2024",
+   "n_rows": 54402,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Accident with no record in the vehicules table."
+  },
+  {
+   "check": "Accident without vehicules",
+   "table": "caract",
+   "year": "all",
+   "n_rows": 327628,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Accident with no record in the vehicules table."
+  },
+  {
+   "check": "Accident without usagers",
+   "table": "caract",
+   "year": "2019",
+   "n_rows": 58840,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Accident with no record in the usagers table."
+  },
+  {
+   "check": "Accident without usagers",
+   "table": "caract",
+   "year": "2020",
+   "n_rows": 47744,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Accident with no record in the usagers table."
+  },
+  {
+   "check": "Accident without usagers",
+   "table": "caract",
+   "year": "2021",
+   "n_rows": 56518,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Accident with no record in the usagers table."
+  },
+  {
+   "check": "Accident without usagers",
+   "table": "caract",
+   "year": "2022",
+   "n_rows": 55302,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Accident with no record in the usagers table."
+  },
+  {
+   "check": "Accident without usagers",
+   "table": "caract",
+   "year": "2023",
+   "n_rows": 54822,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Accident with no record in the usagers table."
+  },
+  {
+   "check": "Accident without usagers",
+   "table": "caract",
+   "year": "2024",
+   "n_rows": 54402,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Accident with no record in the usagers table."
+  },
+  {
+   "check": "Accident without usagers",
+   "table": "caract",
+   "year": "all",
+   "n_rows": 327628,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Accident with no record in the usagers table."
+  },
+  {
+   "check": "User without vehicle",
+   "table": "usagers",
+   "year": "2019",
+   "n_rows": 132977,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "id_vehicule not found in the vehicles table."
+  },
+  {
+   "check": "User without vehicle",
+   "table": "usagers",
+   "year": "2020",
+   "n_rows": 105295,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "id_vehicule not found in the vehicles table."
+  },
+  {
+   "check": "User without vehicle",
+   "table": "usagers",
+   "year": "2021",
+   "n_rows": 129248,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "id_vehicule not found in the vehicles table."
+  },
+  {
+   "check": "User without vehicle",
+   "table": "usagers",
+   "year": "2022",
+   "n_rows": 126662,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "id_vehicule not found in the vehicles table."
+  },
+  {
+   "check": "User without vehicle",
+   "table": "usagers",
+   "year": "2023",
+   "n_rows": 125789,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "id_vehicule not found in the vehicles table."
+  },
+  {
+   "check": "User without vehicle",
+   "table": "usagers",
+   "year": "2024",
+   "n_rows": 125187,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "id_vehicule not found in the vehicles table."
+  },
+  {
+   "check": "User without vehicle",
+   "table": "usagers",
+   "year": "all",
+   "n_rows": 745158,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "id_vehicule not found in the vehicles table."
+  },
+  {
+   "check": "Vehicle without user",
+   "table": "vehicules",
+   "year": "2019",
+   "n_rows": 100710,
+   "n_flagged": 2040,
+   "pct_flagged": 2.026,
+   "status": "warning",
+   "description": "No user recorded for this vehicle (mostly drivers who fled, per ONISR)."
+  },
+  {
+   "check": "Vehicle without user",
+   "table": "vehicules",
+   "year": "2020",
+   "n_rows": 81066,
+   "n_flagged": 1899,
+   "pct_flagged": 2.343,
+   "status": "warning",
+   "description": "No user recorded for this vehicle (mostly drivers who fled, per ONISR)."
+  },
+  {
+   "check": "Vehicle without user",
+   "table": "vehicules",
+   "year": "2021",
+   "n_rows": 97315,
+   "n_flagged": 6,
+   "pct_flagged": 0.006,
+   "status": "minor",
+   "description": "No user recorded for this vehicle (mostly drivers who fled, per ONISR)."
+  },
+  {
+   "check": "Vehicle without user",
+   "table": "vehicules",
+   "year": "2022",
+   "n_rows": 94493,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "No user recorded for this vehicle (mostly drivers who fled, per ONISR)."
+  },
+  {
+   "check": "Vehicle without user",
+   "table": "vehicules",
+   "year": "2023",
+   "n_rows": 93585,
+   "n_flagged": 40,
+   "pct_flagged": 0.043,
+   "status": "minor",
+   "description": "No user recorded for this vehicle (mostly drivers who fled, per ONISR)."
+  },
+  {
+   "check": "Vehicle without user",
+   "table": "vehicules",
+   "year": "2024",
+   "n_rows": 92678,
+   "n_flagged": 24,
+   "pct_flagged": 0.026,
+   "status": "minor",
+   "description": "No user recorded for this vehicle (mostly drivers who fled, per ONISR)."
+  },
+  {
+   "check": "Vehicle without user",
+   "table": "vehicules",
+   "year": "all",
+   "n_rows": 559847,
+   "n_flagged": 4009,
+   "pct_flagged": 0.716,
+   "status": "minor",
+   "description": "No user recorded for this vehicle (mostly drivers who fled, per ONISR)."
+  },
+  {
+   "check": "Missing coordinates",
+   "table": "caract",
+   "year": "2019",
+   "n_rows": 58840,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "lat/long empty or not numeric."
+  },
+  {
+   "check": "Missing coordinates",
+   "table": "caract",
+   "year": "2020",
+   "n_rows": 47744,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "lat/long empty or not numeric."
+  },
+  {
+   "check": "Missing coordinates",
+   "table": "caract",
+   "year": "2021",
+   "n_rows": 56518,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "lat/long empty or not numeric."
+  },
+  {
+   "check": "Missing coordinates",
+   "table": "caract",
+   "year": "2022",
+   "n_rows": 55302,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "lat/long empty or not numeric."
+  },
+  {
+   "check": "Missing coordinates",
+   "table": "caract",
+   "year": "2023",
+   "n_rows": 54822,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "lat/long empty or not numeric."
+  },
+  {
+   "check": "Missing coordinates",
+   "table": "caract",
+   "year": "2024",
+   "n_rows": 54402,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "lat/long empty or not numeric."
+  },
+  {
+   "check": "Missing coordinates",
+   "table": "caract",
+   "year": "all",
+   "n_rows": 327628,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "lat/long empty or not numeric."
+  },
+  {
+   "check": "Coordinates out of bounds",
+   "table": "caract",
+   "year": "2019",
+   "n_rows": 58840,
+   "n_flagged": 30,
+   "pct_flagged": 0.051,
+   "status": "minor",
+   "description": "lat/long outside the bounding box of the accident's département or territory."
+  },
+  {
+   "check": "Coordinates out of bounds",
+   "table": "caract",
+   "year": "2020",
+   "n_rows": 47744,
+   "n_flagged": 4,
+   "pct_flagged": 0.008,
+   "status": "minor",
+   "description": "lat/long outside the bounding box of the accident's département or territory."
+  },
+  {
+   "check": "Coordinates out of bounds",
+   "table": "caract",
+   "year": "2021",
+   "n_rows": 56518,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "lat/long outside the bounding box of the accident's département or territory."
+  },
+  {
+   "check": "Coordinates out of bounds",
+   "table": "caract",
+   "year": "2022",
+   "n_rows": 55302,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "lat/long outside the bounding box of the accident's département or territory."
+  },
+  {
+   "check": "Coordinates out of bounds",
+   "table": "caract",
+   "year": "2023",
+   "n_rows": 54822,
+   "n_flagged": 4,
+   "pct_flagged": 0.007,
+   "status": "minor",
+   "description": "lat/long outside the bounding box of the accident's département or territory."
+  },
+  {
+   "check": "Coordinates out of bounds",
+   "table": "caract",
+   "year": "2024",
+   "n_rows": 54402,
+   "n_flagged": 10,
+   "pct_flagged": 0.018,
+   "status": "minor",
+   "description": "lat/long outside the bounding box of the accident's département or territory."
+  },
+  {
+   "check": "Coordinates out of bounds",
+   "table": "caract",
+   "year": "all",
+   "n_rows": 327628,
+   "n_flagged": 48,
+   "pct_flagged": 0.015,
+   "status": "minor",
+   "description": "lat/long outside the bounding box of the accident's département or territory."
+  },
+  {
+   "check": "Invalid time",
+   "table": "caract",
+   "year": "2019",
+   "n_rows": 58840,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "hrmn is not a valid HH:MM time."
+  },
+  {
+   "check": "Invalid time",
+   "table": "caract",
+   "year": "2020",
+   "n_rows": 47744,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "hrmn is not a valid HH:MM time."
+  },
+  {
+   "check": "Invalid time",
+   "table": "caract",
+   "year": "2021",
+   "n_rows": 56518,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "hrmn is not a valid HH:MM time."
+  },
+  {
+   "check": "Invalid time",
+   "table": "caract",
+   "year": "2022",
+   "n_rows": 55302,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "hrmn is not a valid HH:MM time."
+  },
+  {
+   "check": "Invalid time",
+   "table": "caract",
+   "year": "2023",
+   "n_rows": 54822,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "hrmn is not a valid HH:MM time."
+  },
+  {
+   "check": "Invalid time",
+   "table": "caract",
+   "year": "2024",
+   "n_rows": 54402,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "hrmn is not a valid HH:MM time."
+  },
+  {
+   "check": "Invalid time",
+   "table": "caract",
+   "year": "all",
+   "n_rows": 327628,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "hrmn is not a valid HH:MM time."
+  },
+  {
+   "check": "Invalid date",
+   "table": "caract",
+   "year": "2019",
+   "n_rows": 58840,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "jour/mois/an do not form a valid date."
+  },
+  {
+   "check": "Invalid date",
+   "table": "caract",
+   "year": "2020",
+   "n_rows": 47744,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "jour/mois/an do not form a valid date."
+  },
+  {
+   "check": "Invalid date",
+   "table": "caract",
+   "year": "2021",
+   "n_rows": 56518,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "jour/mois/an do not form a valid date."
+  },
+  {
+   "check": "Invalid date",
+   "table": "caract",
+   "year": "2022",
+   "n_rows": 55302,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "jour/mois/an do not form a valid date."
+  },
+  {
+   "check": "Invalid date",
+   "table": "caract",
+   "year": "2023",
+   "n_rows": 54822,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "jour/mois/an do not form a valid date."
+  },
+  {
+   "check": "Invalid date",
+   "table": "caract",
+   "year": "2024",
+   "n_rows": 54402,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "jour/mois/an do not form a valid date."
+  },
+  {
+   "check": "Invalid date",
+   "table": "caract",
+   "year": "all",
+   "n_rows": 327628,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "jour/mois/an do not form a valid date."
+  },
+  {
+   "check": "Unknown département code",
+   "table": "caract",
+   "year": "2019",
+   "n_rows": 58840,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "dep is not a known département or overseas code."
+  },
+  {
+   "check": "Unknown département code",
+   "table": "caract",
+   "year": "2020",
+   "n_rows": 47744,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "dep is not a known département or overseas code."
+  },
+  {
+   "check": "Unknown département code",
+   "table": "caract",
+   "year": "2021",
+   "n_rows": 56518,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "dep is not a known département or overseas code."
+  },
+  {
+   "check": "Unknown département code",
+   "table": "caract",
+   "year": "2022",
+   "n_rows": 55302,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "dep is not a known département or overseas code."
+  },
+  {
+   "check": "Unknown département code",
+   "table": "caract",
+   "year": "2023",
+   "n_rows": 54822,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "dep is not a known département or overseas code."
+  },
+  {
+   "check": "Unknown département code",
+   "table": "caract",
+   "year": "2024",
+   "n_rows": 54402,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "dep is not a known département or overseas code."
+  },
+  {
+   "check": "Unknown département code",
+   "table": "caract",
+   "year": "all",
+   "n_rows": 327628,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "dep is not a known département or overseas code."
+  },
+  {
+   "check": "Missing birth year",
+   "table": "usagers",
+   "year": "2019",
+   "n_rows": 132977,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "an_nais is empty."
+  },
+  {
+   "check": "Missing birth year",
+   "table": "usagers",
+   "year": "2020",
+   "n_rows": 105295,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "an_nais is empty."
+  },
+  {
+   "check": "Missing birth year",
+   "table": "usagers",
+   "year": "2021",
+   "n_rows": 129248,
+   "n_flagged": 3067,
+   "pct_flagged": 2.373,
+   "status": "warning",
+   "description": "an_nais is empty."
+  },
+  {
+   "check": "Missing birth year",
+   "table": "usagers",
+   "year": "2022",
+   "n_rows": 126662,
+   "n_flagged": 2874,
+   "pct_flagged": 2.269,
+   "status": "warning",
+   "description": "an_nais is empty."
+  },
+  {
+   "check": "Missing birth year",
+   "table": "usagers",
+   "year": "2023",
+   "n_rows": 125789,
+   "n_flagged": 2598,
+   "pct_flagged": 2.065,
+   "status": "warning",
+   "description": "an_nais is empty."
+  },
+  {
+   "check": "Missing birth year",
+   "table": "usagers",
+   "year": "2024",
+   "n_rows": 125187,
+   "n_flagged": 2579,
+   "pct_flagged": 2.06,
+   "status": "warning",
+   "description": "an_nais is empty."
+  },
+  {
+   "check": "Missing birth year",
+   "table": "usagers",
+   "year": "all",
+   "n_rows": 745158,
+   "n_flagged": 11118,
+   "pct_flagged": 1.492,
+   "status": "warning",
+   "description": "an_nais is empty."
+  },
+  {
+   "check": "Invalid birth year",
+   "table": "usagers",
+   "year": "2019",
+   "n_rows": 132977,
+   "n_flagged": 176,
+   "pct_flagged": 0.132,
+   "status": "minor",
+   "description": "Age outside 0–110 years (birth year after the accident or implausibly old)."
+  },
+  {
+   "check": "Invalid birth year",
+   "table": "usagers",
+   "year": "2020",
+   "n_rows": 105295,
+   "n_flagged": 15,
+   "pct_flagged": 0.014,
+   "status": "minor",
+   "description": "Age outside 0–110 years (birth year after the accident or implausibly old)."
+  },
+  {
+   "check": "Invalid birth year",
+   "table": "usagers",
+   "year": "2021",
+   "n_rows": 129248,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Age outside 0–110 years (birth year after the accident or implausibly old)."
+  },
+  {
+   "check": "Invalid birth year",
+   "table": "usagers",
+   "year": "2022",
+   "n_rows": 126662,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Age outside 0–110 years (birth year after the accident or implausibly old)."
+  },
+  {
+   "check": "Invalid birth year",
+   "table": "usagers",
+   "year": "2023",
+   "n_rows": 125789,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Age outside 0–110 years (birth year after the accident or implausibly old)."
+  },
+  {
+   "check": "Invalid birth year",
+   "table": "usagers",
+   "year": "2024",
+   "n_rows": 125187,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Age outside 0–110 years (birth year after the accident or implausibly old)."
+  },
+  {
+   "check": "Invalid birth year",
+   "table": "usagers",
+   "year": "all",
+   "n_rows": 745158,
+   "n_flagged": 191,
+   "pct_flagged": 0.026,
+   "status": "minor",
+   "description": "Age outside 0–110 years (birth year after the accident or implausibly old)."
+  },
+  {
+   "check": "Missing severity",
+   "table": "usagers",
+   "year": "2019",
+   "n_rows": 132977,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "grav is not filled in (mostly users who fled, from 2021)."
+  },
+  {
+   "check": "Missing severity",
+   "table": "usagers",
+   "year": "2020",
+   "n_rows": 105295,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "grav is not filled in (mostly users who fled, from 2021)."
+  },
+  {
+   "check": "Missing severity",
+   "table": "usagers",
+   "year": "2021",
+   "n_rows": 129248,
+   "n_flagged": 60,
+   "pct_flagged": 0.046,
+   "status": "minor",
+   "description": "grav is not filled in (mostly users who fled, from 2021)."
+  },
+  {
+   "check": "Missing severity",
+   "table": "usagers",
+   "year": "2022",
+   "n_rows": 126662,
+   "n_flagged": 241,
+   "pct_flagged": 0.19,
+   "status": "minor",
+   "description": "grav is not filled in (mostly users who fled, from 2021)."
+  },
+  {
+   "check": "Missing severity",
+   "table": "usagers",
+   "year": "2023",
+   "n_rows": 125789,
+   "n_flagged": 118,
+   "pct_flagged": 0.094,
+   "status": "minor",
+   "description": "grav is not filled in (mostly users who fled, from 2021)."
+  },
+  {
+   "check": "Missing severity",
+   "table": "usagers",
+   "year": "2024",
+   "n_rows": 125187,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "grav is not filled in (mostly users who fled, from 2021)."
+  },
+  {
+   "check": "Missing severity",
+   "table": "usagers",
+   "year": "all",
+   "n_rows": 745158,
+   "n_flagged": 419,
+   "pct_flagged": 0.056,
+   "status": "minor",
+   "description": "grav is not filled in (mostly users who fled, from 2021)."
+  },
+  {
+   "check": "Missing speed limit",
+   "table": "lieux",
+   "year": "2019",
+   "n_rows": 58840,
+   "n_flagged": 881,
+   "pct_flagged": 1.497,
+   "status": "warning",
+   "description": "vma is not filled in."
+  },
+  {
+   "check": "Missing speed limit",
+   "table": "lieux",
+   "year": "2020",
+   "n_rows": 47744,
+   "n_flagged": 740,
+   "pct_flagged": 1.55,
+   "status": "warning",
+   "description": "vma is not filled in."
+  },
+  {
+   "check": "Missing speed limit",
+   "table": "lieux",
+   "year": "2021",
+   "n_rows": 56518,
+   "n_flagged": 875,
+   "pct_flagged": 1.548,
+   "status": "warning",
+   "description": "vma is not filled in."
+  },
+  {
+   "check": "Missing speed limit",
+   "table": "lieux",
+   "year": "2022",
+   "n_rows": 55302,
+   "n_flagged": 897,
+   "pct_flagged": 1.622,
+   "status": "warning",
+   "description": "vma is not filled in."
+  },
+  {
+   "check": "Missing speed limit",
+   "table": "lieux",
+   "year": "2023",
+   "n_rows": 70860,
+   "n_flagged": 4578,
+   "pct_flagged": 6.461,
+   "status": "warning",
+   "description": "vma is not filled in."
+  },
+  {
+   "check": "Missing speed limit",
+   "table": "lieux",
+   "year": "2024",
+   "n_rows": 70248,
+   "n_flagged": 3630,
+   "pct_flagged": 5.167,
+   "status": "warning",
+   "description": "vma is not filled in."
+  },
+  {
+   "check": "Missing speed limit",
+   "table": "lieux",
+   "year": "all",
+   "n_rows": 359512,
+   "n_flagged": 11601,
+   "pct_flagged": 3.227,
+   "status": "warning",
+   "description": "vma is not filled in."
+  },
+  {
+   "check": "Implausible speed limit",
+   "table": "lieux",
+   "year": "2019",
+   "n_rows": 58840,
+   "n_flagged": 61,
+   "pct_flagged": 0.104,
+   "status": "minor",
+   "description": "vma outside 5–130 km/h."
+  },
+  {
+   "check": "Implausible speed limit",
+   "table": "lieux",
+   "year": "2020",
+   "n_rows": 47744,
+   "n_flagged": 46,
+   "pct_flagged": 0.096,
+   "status": "minor",
+   "description": "vma outside 5–130 km/h."
+  },
+  {
+   "check": "Implausible speed limit",
+   "table": "lieux",
+   "year": "2021",
+   "n_rows": 56518,
+   "n_flagged": 49,
+   "pct_flagged": 0.087,
+   "status": "minor",
+   "description": "vma outside 5–130 km/h."
+  },
+  {
+   "check": "Implausible speed limit",
+   "table": "lieux",
+   "year": "2022",
+   "n_rows": 55302,
+   "n_flagged": 38,
+   "pct_flagged": 0.069,
+   "status": "minor",
+   "description": "vma outside 5–130 km/h."
+  },
+  {
+   "check": "Implausible speed limit",
+   "table": "lieux",
+   "year": "2023",
+   "n_rows": 70860,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "vma outside 5–130 km/h."
+  },
+  {
+   "check": "Implausible speed limit",
+   "table": "lieux",
+   "year": "2024",
+   "n_rows": 70248,
+   "n_flagged": 72,
+   "pct_flagged": 0.102,
+   "status": "minor",
+   "description": "vma outside 5–130 km/h."
+  },
+  {
+   "check": "Implausible speed limit",
+   "table": "lieux",
+   "year": "all",
+   "n_rows": 359512,
+   "n_flagged": 266,
+   "pct_flagged": 0.074,
+   "status": "minor",
+   "description": "vma outside 5–130 km/h."
+  },
+  {
+   "check": "Extra place rows",
+   "table": "lieux",
+   "year": "2019",
+   "n_rows": 58840,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Additional road rows for the same accident (from 2023); the first one is kept."
+  },
+  {
+   "check": "Extra place rows",
+   "table": "lieux",
+   "year": "2020",
+   "n_rows": 47744,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Additional road rows for the same accident (from 2023); the first one is kept."
+  },
+  {
+   "check": "Extra place rows",
+   "table": "lieux",
+   "year": "2021",
+   "n_rows": 56518,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Additional road rows for the same accident (from 2023); the first one is kept."
+  },
+  {
+   "check": "Extra place rows",
+   "table": "lieux",
+   "year": "2022",
+   "n_rows": 55302,
+   "n_flagged": 0,
+   "pct_flagged": 0.0,
+   "status": "pass",
+   "description": "Additional road rows for the same accident (from 2023); the first one is kept."
+  },
+  {
+   "check": "Extra place rows",
+   "table": "lieux",
+   "year": "2023",
+   "n_rows": 70860,
+   "n_flagged": 16038,
+   "pct_flagged": 22.633,
+   "status": "warning",
+   "description": "Additional road rows for the same accident (from 2023); the first one is kept."
+  },
+  {
+   "check": "Extra place rows",
+   "table": "lieux",
+   "year": "2024",
+   "n_rows": 70248,
+   "n_flagged": 15846,
+   "pct_flagged": 22.557,
+   "status": "warning",
+   "description": "Additional road rows for the same accident (from 2023); the first one is kept."
+  },
+  {
+   "check": "Extra place rows",
+   "table": "lieux",
+   "year": "all",
+   "n_rows": 359512,
+   "n_flagged": 31884,
+   "pct_flagged": 8.869,
+   "status": "warning",
+   "description": "Additional road rows for the same accident (from 2023); the first one is kept."
+  }
+ ]
+}
