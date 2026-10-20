@@ -1,29 +1,22 @@
-"""Story & Overview page: hook, context, KPI header tied to the filters, yearly trend."""
+"""Page 1 — Story & Overview: hook, context, KPIs tied to the filters, yearly trend."""
 
-from __future__ import annotations
-
-import pandas as pd
 import streamlit as st
 
 import constants as C
 from utils import metrics, ui, viz
 from utils.filters import filtered_accidents, load_accidents
 
-STABLE_CHANGE_PCT = 1.0  # changes smaller than this are described as "about the same"
 
-
-def describe_change(before: float, after: float) -> str:
-    """Plain-English direction of a change, e.g. "fell by 4.1%"."""
-    if before == 0:
-        return "cannot be compared"
+def describe_change(before, after):
+    """"fell by 4.1%", "rose by 2.0%", or "stayed about the same" below 1%."""
     change = 100 * (after - before) / before
-    if abs(change) < STABLE_CHANGE_PCT:
+    if abs(change) < 1:
         return "stayed about the same"
     return f"{'rose' if change > 0 else 'fell'} by {abs(change):.1f}%"
 
 
-def trend_headline(yearly: pd.DataFrame) -> str:
-    """Sentence comparing the first and last year of the selection."""
+def trend_headline(yearly):
+    """Sentence comparing the first and the last year of the selection."""
     if len(yearly) == 1:
         row = yearly.iloc[0]
         return (f"In {int(row['year'])}, {ui.fmt_int(row['accidents'])} injury accidents and "
@@ -31,8 +24,7 @@ def trend_headline(yearly: pd.DataFrame) -> str:
                 f"(lethality {ui.fmt_rate(row['lethality'])} per {C.LETHALITY_PER} accidents).")
     first, last = yearly.iloc[0], yearly.iloc[-1]
     before, after = ui.fmt_rate(first["lethality"]), ui.fmt_rate(last["lethality"])
-    lethality_text = (f"lethality stayed at {after}" if before == after
-                      else f"lethality went from {before} to {after}")
+    lethality_text = f"lethality stayed at {after}" if before == after else f"lethality went from {before} to {after}"
     return (
         f"Between {int(first['year'])} and {int(last['year'])}, injury accidents "
         f"{describe_change(first['accidents'], last['accidents'])} and deaths "
@@ -42,8 +34,8 @@ def trend_headline(yearly: pd.DataFrame) -> str:
     )
 
 
-def hook() -> None:
-    """Why it matters, computed on the whole dataset."""
+def hook():
+    """Why it matters, on the whole dataset (not filtered)."""
     acc = load_accidents()
     k = metrics.kpis(acc)
     n_weeks = ((acc["date"].max() - acc["date"].min()).days + 1) / 7
@@ -53,10 +45,6 @@ def hook() -> None:
         f"died** — about {k['killed'] / n_weeks:.0f} deaths every week. But an accident is not equally "
         "dangerous everywhere: this app asks **where** and **for whom** an accident is most likely to be fatal."
     )
-
-
-def context() -> None:
-    """Short background: audience, key metric, source."""
     with st.expander("Context: audience, key metric and data", expanded=False):
         st.markdown(
             "- **Audience:** local road-safety decision makers (préfectures, départements, municipalities) "
@@ -72,42 +60,39 @@ def context() -> None:
         )
 
 
-def kpi_row(acc: pd.DataFrame, yearly: pd.DataFrame) -> None:
-    """Four KPIs with the change vs the previous year and a yearly sparkline."""
+def kpi_row(acc, yearly):
+    """Four KPIs; with two years or more, also the change vs the previous year and a sparkline."""
     k = metrics.kpis(acc)
     d = metrics.kpi_delta(acc)
-    vs = f"{d['last']} vs {d['previous']}" if d["last"] else None
-    spark = len(yearly) > 1
+    lethality_help = (f"Deaths (within 30 days) per {C.LETHALITY_PER} injury accidents recorded by the police. "
+                      f"Rates based on fewer than {C.MIN_ACCIDENTS_FOR_RATE} accidents are hidden or greyed out.")
     items = [
-        ("Injury accidents", ui.fmt_int(k["accidents"]), d["accidents"], "%", "accidents",
+        ("Injury accidents", ui.fmt_int(k["accidents"]), "accidents", "%",
          "Accidents with at least one casualty, recorded by the police."),
-        ("People killed", ui.fmt_int(k["killed"]), d["killed"], "%", "killed",
-         "Died on the spot or within 30 days."),
-        ("Hospitalised", ui.fmt_int(k["hospitalised"]), d["hospitalised"], "%", "hospitalised",
+        ("People killed", ui.fmt_int(k["killed"]), "killed", "%", "Died on the spot or within 30 days."),
+        ("Hospitalised", ui.fmt_int(k["hospitalised"]), "hospitalised", "%",
          "Hospitalised more than 24 h. Not a certified indicator since 2019: read with care."),
-        ("Lethality (per 100 accidents)", ui.fmt_rate(k["lethality"]), d["lethality"], " pts", "lethality",
-         ui.lethality_help()),
+        ("Lethality (per 100 accidents)", ui.fmt_rate(k["lethality"]), "lethality", " pts", lethality_help),
     ]
-    for column, (label, value, delta, unit, series, help_text) in zip(st.columns(4), items):
+    for column, (label, value, key, unit, help_text) in zip(st.columns(4), items):
         column.metric(
-            label, value, delta=ui.fmt_change(delta, unit) if vs else None, delta_color="inverse",
-            delta_description=vs, border=True, help=help_text,
-            chart_data=yearly[series].round(2).tolist() if spark else None,
+            label, value, border=True, help=help_text, delta_color="inverse",
+            delta=ui.fmt_change(d[key], unit) if d else None,
+            delta_description=d["vs"] if d else None,
+            chart_data=yearly[key].round(2).tolist() if d else None,
         )
-    if vs:
-        st.caption(f"Changes compare the last two years of the selection ({vs}); "
+    if d:
+        st.caption(f"Changes compare the last two years of the selection ({d['vs']}); "
                    "green means fewer accidents or deaths, or a lower lethality.")
 
 
-def render() -> None:
+def render():
     filters = ui.current_filters()
     acc = filtered_accidents(filters.years, filters.regions)
-    ui.require_rows(acc)
-    yearly = metrics.yearly(acc)
+    yearly = metrics.count_table(acc, "year")
 
     st.title("Where, when and who: the hidden geography of road danger in France")
     hook()
-    context()
 
     st.header("Are French roads getting safer?")
     ui.headline(trend_headline(yearly))

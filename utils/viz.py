@@ -1,31 +1,21 @@
-"""Plotly chart functions, one chart per function, sharing one visual style.
+"""Plotly charts, one function per chart, all with the same style.
 
-Every chart has a title, axis titles with units and a hover template.
-Functions return a figure and never call Streamlit, so they can be tested
-outside the app.
+Each chart has a title, axis titles with units and a hover text. The functions
+only build figures (no Streamlit), so scripts/check_charts.py can test them.
 """
 
-from __future__ import annotations
-
 import numpy as np
-import pandas as pd
 import plotly.graph_objects as go
 
 import constants as C
 
-FONT_FAMILY = "Source Sans Pro, Arial, sans-serif"
-CHART_HEIGHT = 380
 
-
-# --- Shared style -----------------------------------------------------------------
-
-def style(fig: go.Figure, title: str, x_title: str | None = None, y_title: str | None = None,
-          height: int = CHART_HEIGHT) -> go.Figure:
-    """Apply the common layout: white background, light grid, readable fonts."""
+def style(fig, title, x_title=None, y_title=None, height=380):
+    """Common layout: white background, light grid, readable fonts."""
     fig.update_layout(
         title={"text": title, "x": 0, "xanchor": "left", "font": {"size": 17}},
         template="plotly_white",
-        font={"family": FONT_FAMILY, "size": 13, "color": C.TEXT_COLOR},
+        font={"family": "Source Sans Pro, Arial, sans-serif", "size": 13, "color": C.TEXT_COLOR},
         height=height,
         margin={"l": 10, "r": 10, "t": 60, "b": 10},
         hoverlabel={"bgcolor": "white", "font_size": 13},
@@ -37,34 +27,19 @@ def style(fig: go.Figure, title: str, x_title: str | None = None, y_title: str |
     return fig
 
 
-def add_reference_line(fig: go.Figure, value: float, label: str, axis: str = "y") -> go.Figure:
-    """Dashed reference line (e.g. the average of the selection)."""
-    if value is None or np.isnan(value):
-        return fig
-    line = {"dash": "dash", "color": C.NEUTRAL_COLOR, "width": 1.5}
-    if axis == "y":
-        fig.add_hline(y=value, line=line, annotation_text=label, annotation_position="top left",
-                      annotation_font_color=C.TEXT_COLOR)
-    else:
-        fig.add_vline(x=value, line=line, annotation_text=label, annotation_position="top right",
-                      annotation_font_color=C.TEXT_COLOR)
-    return fig
+REFERENCE_LINE = {"dash": "dash", "color": C.NEUTRAL_COLOR, "width": 1.5}
 
 
-# --- Time ---------------------------------------------------------------------------
-
-def yearly_trend_indexed(yearly: pd.DataFrame, title: str) -> go.Figure:
+def yearly_trend_indexed(yearly, title):
     """Accidents and deaths per year, both indexed to the first year = 100.
 
-    Accidents (~50,000 a year) and deaths (~3,000) cannot share one axis in
-    absolute numbers, and two y-axes mislead; an index puts both trends on the
-    same scale while the hover text gives the real counts.
+    The two counts differ by a factor ~20, and two y-axes mislead; an index puts
+    both trends on one scale, while the hover text gives the real counts.
     """
     base_year = int(yearly["year"].iloc[0])
-    series = [("accidents", "Injury accidents", C.MAIN_COLOR, "solid"),
-              ("killed", "Deaths", C.HIGHLIGHT_COLOR, "dash")]
     fig = go.Figure()
-    for column, label, color, dash in series:
+    for column, label, color, dash in [("accidents", "Injury accidents", C.MAIN_COLOR, "solid"),
+                                       ("killed", "Deaths", C.HIGHLIGHT_COLOR, "dash")]:
         index = 100 * yearly[column] / yearly[column].iloc[0]
         fig.add_trace(go.Scatter(
             x=yearly["year"], y=index, name=label, mode="lines+markers",
@@ -73,22 +48,22 @@ def yearly_trend_indexed(yearly: pd.DataFrame, title: str) -> go.Figure:
             hovertemplate=(f"<b>{label}</b>, %{{x}}<br>Index: %{{y:.1f}} ({base_year} = 100)"
                            "<br>Count: %{customdata:,}<extra></extra>"),
         ))
-        # Direct label at the end of each line, so identity does not rely on colour alone.
+        # Label at the end of each line, so the series are not told apart by colour alone.
         fig.add_annotation(x=yearly["year"].iloc[-1], y=index.iloc[-1], text=f" {label}", showarrow=False,
                            xanchor="left", font={"color": C.TEXT_COLOR, "size": 12})
     if C.LOCKDOWN_YEAR in set(yearly["year"]):
         fig.add_vrect(x0=C.LOCKDOWN_YEAR - 0.5, x1=C.LOCKDOWN_YEAR + 0.5, fillcolor=C.NEUTRAL_COLOR,
                       opacity=0.15, line_width=0, annotation_text="2020: COVID-19 lockdowns",
                       annotation_position="top left", annotation_font={"size": 11, "color": C.TEXT_COLOR})
-    add_reference_line(fig, 100, f"{base_year} level")
+    fig.add_hline(y=100, line=REFERENCE_LINE, annotation_text=f"{base_year} level",
+                  annotation_position="top left", annotation_font_color=C.TEXT_COLOR)
     style(fig, title, "Year", f"Index ({base_year} = 100)")
     fig.update_xaxes(dtick=1, range=[yearly["year"].min() - 0.3, yearly["year"].max() + 0.9])
     fig.update_yaxes(rangemode="normal")
     return fig
 
 
-def hour_weekday_heatmap(matrix: pd.DataFrame, title: str, colorbar_title: str,
-                         scale: str = C.SEQUENTIAL_SCALE, value_format: str = ",.0f") -> go.Figure:
+def hour_weekday_heatmap(matrix, title, colorbar_title, scale=C.SEQUENTIAL_SCALE, value_format=",.0f"):
     """Weekday × hour heatmap; empty cells mean too few accidents."""
     fig = go.Figure(go.Heatmap(
         z=matrix.values, x=[f"{h:02d}h" for h in matrix.columns], y=list(matrix.index),
@@ -102,53 +77,39 @@ def hour_weekday_heatmap(matrix: pd.DataFrame, title: str, colorbar_title: str,
     return fig
 
 
-# --- Categories -----------------------------------------------------------------------
+def category_bar(table, category, value, title, x_title, reference, reference_label,
+                 value_format=".1f", count_column="accidents", count_label="Accidents"):
+    """Horizontal bars with a value label and a dashed reference line.
 
-def category_bar(table: pd.DataFrame, category: str, value: str, title: str, x_title: str | None,
-                 y_title: str | None, reference: float | None = None, reference_label: str = "",
-                 horizontal: bool = False, value_format: str = ".1f",
-                 count_column: str = "accidents", count_label: str = "Accidents") -> go.Figure:
-    """Bar per category with a value label, a hover showing the sample size,
-    and grey bars when the sample is too small for a stable rate."""
-    colors = np.where(table["reliable"], C.MAIN_COLOR, C.NEUTRAL_COLOR)
-    labels = [f"{v:{value_format}}" if pd.notna(v) else "" for v in table[value]]
-    cats = table[category].astype(str)
-    hover = ("<b>%{" + ("y" if horizontal else "x") + "}</b><br>" + (x_title if horizontal else y_title)
-             + ": %{" + ("x" if horizontal else "y") + ":" + value_format + "}<br>"
-             + count_label + ": %{customdata:,}<extra></extra>")
+    Grey bars rest on too few cases for a stable rate; the hover shows the sample size.
+    """
     fig = go.Figure(go.Bar(
-        x=table[value] if horizontal else cats,
-        y=cats if horizontal else table[value],
-        orientation="h" if horizontal else "v",
-        marker={"color": colors}, text=labels, textposition="outside", cliponaxis=False,
-        customdata=table[count_column], hovertemplate=hover,
+        x=table[value], y=table[category].astype(str), orientation="h",
+        marker={"color": np.where(table["reliable"], C.MAIN_COLOR, C.NEUTRAL_COLOR)},
+        text=[f"{v:{value_format}}" for v in table[value]], textposition="outside", cliponaxis=False,
+        customdata=table[count_column],
+        hovertemplate=(f"<b>%{{y}}</b><br>{x_title}: %{{x:{value_format}}}<br>"
+                       f"{count_label}: %{{customdata:,}}<extra></extra>"),
     ))
-    style(fig, title, x_title, y_title)
-    if horizontal:
-        fig.update_yaxes(autorange="reversed", rangemode="normal")
-        fig.update_xaxes(range=[0, table[value].max() * 1.18])
-    else:
-        fig.update_yaxes(range=[0, table[value].max() * 1.18])
-    if reference is not None:
-        add_reference_line(fig, reference, reference_label, axis="x" if horizontal else "y")
+    style(fig, title, x_title, None)
+    fig.update_yaxes(autorange="reversed", rangemode="normal")
+    fig.update_xaxes(range=[0, table[value].max() * 1.18])
+    fig.add_vline(x=reference, line=REFERENCE_LINE, annotation_text=reference_label,
+                  annotation_position="top right", annotation_font_color=C.TEXT_COLOR)
     return fig
 
 
-# --- Map ----------------------------------------------------------------------------------
+def dep_choropleth(dep_table, geojson, value, title, colorbar_title, scale=C.SEQUENTIAL_SCALE,
+                   value_format=",.0f", hide_unreliable=False):
+    """Map of metropolitan départements (overseas ones are not in the GeoJSON).
 
-def dep_choropleth(dep_table: pd.DataFrame, geojson: dict, value: str, title: str,
-                   colorbar_title: str, scale: str = C.SEQUENTIAL_SCALE,
-                   value_format: str = ",.0f", hide_unreliable: bool = False) -> go.Figure:
-    """Choropleth of metropolitan départements. Overseas units are not drawn.
-
-    With ``hide_unreliable`` the départements below the accident threshold are
-    drawn in grey instead of coloured, so noisy rates do not stand out.
+    With hide_unreliable, départements below the accident threshold are drawn in grey.
     """
     map_codes = {feature["id"] for feature in geojson["features"]}
-    data = dep_table[dep_table["dep"].astype(str).isin(map_codes)].copy()
-    data["dep"] = data["dep"].astype(str)
+    data = dep_table.assign(dep=dep_table["dep"].astype(str))
+    data = data[data["dep"].isin(map_codes)]
     shown = data[data["reliable"]] if hide_unreliable else data
-    greyed = data[~data["reliable"]] if hide_unreliable else data.iloc[0:0]
+    greyed = data[~data["reliable"]]
 
     custom = ["dep_name", "accidents", "killed", "lethality"]
     hover = ("<b>%{customdata[0]} (%{location})</b><br>"
@@ -160,7 +121,7 @@ def dep_choropleth(dep_table: pd.DataFrame, geojson: dict, value: str, title: st
         colorbar={"title": {"text": colorbar_title}, "tickformat": value_format},
         customdata=shown[custom], hovertemplate=hover,
     ))
-    if len(greyed):
+    if hide_unreliable and len(greyed):
         fig.add_trace(go.Choropleth(
             geojson=geojson, locations=greyed["dep"], featureidkey="id", z=np.zeros(len(greyed)),
             colorscale=[[0, "#DDDDDD"], [1, "#DDDDDD"]], showscale=False,
@@ -174,20 +135,13 @@ def dep_choropleth(dep_table: pd.DataFrame, geojson: dict, value: str, title: st
     return fig
 
 
-# --- Quality ------------------------------------------------------------------------------
-
-def missingness_bar(missing: pd.DataFrame, title: str, structural: set[str] = frozenset(),
-                    top_n: int = 15) -> go.Figure:
-    """Columns with the highest share of missing values ("-1" or empty).
-
-    Columns listed in ``structural`` (as "table.column") are drawn in grey: they
-    are empty by design for most rows (e.g. pedestrian-only fields).
-    """
-    table = missing.sort_values("pct_missing", ascending=False).head(top_n)
+def missingness_bar(missing, title, structural):
+    """The 15 columns with the most missing values; grey = empty by design (e.g. pedestrian-only fields)."""
+    table = missing.sort_values("pct_missing", ascending=False).head(15)
     labels = table["table"] + "." + table["column"]
-    colors = np.where(labels.isin(structural), C.NEUTRAL_COLOR, C.MAIN_COLOR)
     fig = go.Figure(go.Bar(
-        x=table["pct_missing"], y=labels, orientation="h", marker={"color": colors},
+        x=table["pct_missing"], y=labels, orientation="h",
+        marker={"color": np.where(labels.isin(structural), C.NEUTRAL_COLOR, C.MAIN_COLOR)},
         text=[f"{v:.1f}%" for v in table["pct_missing"]], textposition="outside", cliponaxis=False,
         customdata=table[["n_missing", "n_rows"]],
         hovertemplate=("<b>%{y}</b><br>Missing: %{x:.2f}%<br>"

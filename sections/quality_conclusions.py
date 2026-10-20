@@ -1,8 +1,5 @@
-"""Data Quality & Conclusions page: validation checks, missing values, findings, limits, next steps."""
+"""Page 4 — Data Quality & Conclusions: checks, missing values, findings, limitations, next steps."""
 
-from __future__ import annotations
-
-import pandas as pd
 import streamlit as st
 
 import constants as C
@@ -11,12 +8,16 @@ from utils import metrics, ui, viz
 from utils.filters import filtered_accidents, filtered_users, load_quality
 from utils.quality import STRUCTURAL_MISSING
 
-STATUS_ICONS = {"pass": "✅ pass", "minor": "🟡 minor", "warning": "🟠 warning"}
+STATUS_ICONS = {"pass": " pass", "minor": " minor", "warning": " warning"}
+STATUS_COLORS = {
+    "pass": "#4D4D4D",     
+    "minor": "#A15C00",    
+    "warning": "#B42318"   
+}
 
 
-def quality_headline(checks: pd.DataFrame, summary: dict) -> str:
-    """Count of checks by status and the most affected ones."""
-    overall = checks[(checks["year"] == "all") & (checks["check"] != "Rows per year")]
+def quality_headline(overall, summary):
+    """Number of checks per status, and the checks with a warning."""
     warnings = overall[overall["status"] == "warning"].sort_values("pct_flagged", ascending=False)
     worst = "; ".join(f"{row.check.lower()} ({row.pct_flagged:.1f}% of {row.table} rows)"
                       for row in warnings.itertuples())
@@ -24,34 +25,53 @@ def quality_headline(checks: pd.DataFrame, summary: dict) -> str:
             f"{C.QUALITY_WARN_PCT:.0f}% of rows and {summary['n_warning']} flag more")
     return text + (f": {worst}." if worst else ".")
 
+def status_style(status):
 
-def checks_table(checks: pd.DataFrame) -> None:
+    clean_status = str(status).strip()
+    
+    color = STATUS_COLORS.get(clean_status, "black") 
+    
+    weight = "bold" if clean_status == "warning" else "normal"
+    
+    return f"color: {color}; font-weight: {weight}"
+
+
+def checks_table(overall):
     """Duplicates, orphan keys, coordinates and value checks, all years together."""
-    view = checks[(checks["year"] == "all") & (checks["check"] != "Rows per year")].copy()
-    view["status"] = view["status"].map(STATUS_ICONS)
+    
+    view = overall.copy() 
+    
+    styled_view = view[["status", "check", "table", "n_flagged", "n_rows", "pct_flagged", "description"]]\
+        .style.map(status_style, subset=["status"])
+    
     st.dataframe(
-        view[["status", "check", "table", "n_flagged", "n_rows", "pct_flagged", "description"]],
-        hide_index=True, width="stretch",
+        styled_view,
+        hide_index=True, 
+        width="stretch",
         column_config={
-            "status": "Status", "check": "Check", "table": "Table",
+            "status": "Status", 
+            "check": "Check", 
+            "table": "Table",
             "n_flagged": st.column_config.NumberColumn("Rows flagged", format="localized"),
             "n_rows": st.column_config.NumberColumn("Rows checked", format="localized"),
             "pct_flagged": st.column_config.NumberColumn("% flagged", format="%.2f"),
             "description": st.column_config.TextColumn("What is checked", width="large"),
         },
     )
-    st.caption(f"Status: pass = nothing flagged; minor = less than {C.QUALITY_WARN_PCT:.0f}% of rows; "
-               f"warning = {C.QUALITY_WARN_PCT:.0f}% or more. Per-year results are in "
-               "data/processed/quality_report.json.")
+    
+    st.caption(
+        f"Status: pass = nothing flagged; minor = less than {C.QUALITY_WARN_PCT:.0f}% of rows; "
+        f"warning = {C.QUALITY_WARN_PCT:.0f}% or more. Per-year results are in "
+        "data/processed/quality_report.json."
+    )
 
-
-def missingness_chart(missing: pd.DataFrame) -> None:
-    """Columns with the most missing values, free-text fields left out."""
+def missingness_chart(missing):
+    """Columns with the most missing values, all years together, free-text fields left out."""
     data = missing[~missing["is_text_field"]]
     totals = data.groupby(["table", "column"], as_index=False)[["n_missing", "n_rows"]].sum()
     totals["pct_missing"] = 100 * totals["n_missing"] / totals["n_rows"]
     fig = viz.missingness_bar(totals[totals["n_missing"] > 0], "Columns with the most missing values",
-                              structural=STRUCTURAL_MISSING)
+                              STRUCTURAL_MISSING)
     ui.chart(fig, "Horizontal bar chart of the share of missing values per column, highest first. Grey bars are "
                   "columns that are empty by design for most rows.", key="quality_missing")
     st.caption('"Missing" counts the code -1 and empty cells (free-text fields such as the address are left '
@@ -59,37 +79,39 @@ def missingness_chart(missing: pd.DataFrame) -> None:
                "road users.")
 
 
-def conclusions(filters) -> None:
-    """Three findings recomputed for the selection, each with what it implies."""
+def conclusions(filters):
+    """The three page headlines, recomputed for the selection, each with what it implies."""
     acc = filtered_accidents(filters.years, filters.regions)
     users = filtered_users(filters.years, filters.regions)
     findings = [
-        ("Trend", story.trend_headline(metrics.yearly(acc)),
+        ("Trend", story.trend_headline(metrics.count_table(acc, "year")),
          "Look at deaths and lethality, not only at accident counts: fewer accidents do not automatically "
          "mean fewer deaths."),
         ("Where", where.size_vs_lethality_headline(metrics.by_departement(acc)),
          "Ranking territories by lethality points to different places than ranking them by accident counts; "
          "both views are needed to set local priorities."),
-        ("Who", who.user_type_headline(metrics.users_by(users, "user_type")) if not users.empty else None,
+        ("Who", who.user_type_headline(metrics.users_by_type(users)),
          "Road users outside a car deserve specific attention (crossings, lighting, separated space), "
          "in proportion to their share of the deaths."),
     ]
     for number, (label, finding, implication) in enumerate(findings, start=1):
-        if finding:
+        if finding:  # a headline is None when the selection is too small
             st.markdown(f"**{number}. {label}.** {finding}  \n*Implication:* {implication}")
 
 
-def render() -> None:
+def render():
     filters = ui.current_filters()
     checks, missing, summary = load_quality()
+    # One row per check for all years together ("Rows per year" is information, not a check).
+    overall = checks[(checks["year"] == "all") & (checks["check"] != "Rows per year")]
 
     st.title("Data quality & conclusions")
 
     st.header("Can we trust these numbers?")
-    ui.headline(quality_headline(checks, summary))
+    ui.headline(quality_headline(overall, summary))
     st.caption("Checks run on the raw files as published, before cleaning, for all years and places "
                "(they do not follow the sidebar filters).")
-    checks_table(checks)
+    checks_table(overall)
     missingness_chart(missing)
 
     st.header("Conclusions")

@@ -1,14 +1,9 @@
-"""Project-wide constants: paths, scope, thresholds and shared reference tables.
-
-Everything that should stay consistent between the data pipeline and the app
-lives here, so a single edit changes the behaviour everywhere.
-"""
+"""Settings shared by the data pipeline and the app: paths, years, thresholds, code labels, colours."""
 
 from pathlib import Path
 
 # --- Reproducibility --------------------------------------------------------
-# The pipeline and the app are fully deterministic (no sampling). This seed is
-# the single place to fix randomness if a sample or a model is added later.
+# Nothing is random today (no sampling); use this seed if a sample or a model is added.
 RANDOM_SEED = 42
 
 # --- Paths ------------------------------------------------------------------
@@ -98,8 +93,7 @@ DEP_TO_REGION: dict[str, str] = {
     "974": "La Réunion",
     "976": "Mayotte",
 }
-# Other codes found in the data (e.g. overseas collectivities) are grouped
-# under this label once verified in the raw files.
+# Codes not listed above (overseas collectivities such as 975, 986–988) get this region.
 OTHER_REGION = "Other overseas territories"
 
 
