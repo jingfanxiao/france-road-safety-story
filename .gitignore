@@ -1,12 +1,4 @@
-# Working files (never part of the repo or the submission)
-CLAUDE.md
-CLAUDE.local.md
-PROGRESS.md
-.claude/
-docs/code_walkthrough_zh.md
-docs/deployment_guide_zh.md
-docs/video_script_zh.md
-docs/video_script.md
+
 # Python
 .venv/
 __pycache__/
