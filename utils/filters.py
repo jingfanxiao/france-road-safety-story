@@ -68,15 +68,29 @@ class Filters:
         return f"Years {self.years[0]}–{self.years[1]} · {place} · Indicator: {self.indicator}"
 
 
+def default_widget_values():
+    """Widget key -> default value, taken from the Filters defaults."""
+    default = Filters()
+    return {"f_years": default.years, "f_regions": list(default.regions), "f_indicator": default.indicator}
+
+
 def reset_filters():
-    for key in ["f_years", "f_regions", "f_indicator"]:
-        st.session_state.pop(key, None)
+    # Write the defaults back instead of deleting the keys: only a value set through
+    # st.session_state is sent to the browser, so deleting would leave the widgets showing
+    # the old selection while the pages already use the defaults.
+    for key, value in default_widget_values().items():
+        st.session_state[key] = value
 
 
 def render_sidebar():
     """Draw the global filters and return the current selection."""
+    # The widgets take their start value from session state only (no value= argument),
+    # so the reset above and the first run use the same source.
+    for key, value in default_widget_values().items():
+        st.session_state.setdefault(key, value)
+
     st.sidebar.header("Filters")
-    years = st.sidebar.slider("Years", C.FIRST_YEAR, C.LAST_YEAR, (C.FIRST_YEAR, C.LAST_YEAR), key="f_years")
+    years = st.sidebar.slider("Years", C.FIRST_YEAR, C.LAST_YEAR, key="f_years")
     regions = st.sidebar.multiselect(
         "Region", sorted(load_accidents()["region"].cat.categories), key="f_regions",
         help="Leave empty for all of France (including overseas).",
